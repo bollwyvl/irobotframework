@@ -1,0 +1,55 @@
+steps:
+  - ${{ if eq(parameters.name, 'Windows') }}:
+    - task: CondaEnvironment@1
+      inputs:
+        createOptions: -c conda-forge -c defaults
+        createCustomEnvironment: true
+        updateConda: false
+        environmentName: _test
+        packageSpecs: >
+          black
+          flake8
+          geckodriver
+          importnb>=0.5.2
+          ipykernel>=5.1
+          ipython>=7.2
+          isort
+          jupyter_kernel_test
+          jupyterlab>=0.35.4,<0.36
+          nodejs>=8.12,<9
+          pillow
+          pylint
+          pytest
+          pytest-cov
+          python-chromedriver-binary
+          python-chromedriver-binary==2.42
+          robotframework-lint
+          robotframework-seleniumlibrary>=3.2.0
+          robotframework>=3.1
+          twine
+  - ${{ if not(eq(parameters.name, 'Windows')) }}:
+    - task: CondaEnvironment@1
+      inputs:
+        createOptions: -c conda-forge -c defaults
+        createCustomEnvironment: true
+        updateConda: false
+        environmentName: _test
+        packageSpecs: >
+          black
+          flake8
+          geckodriver
+          importnb>=0.5.2
+          ipykernel>=5.1
+          ipython>=7.2
+          jupyter_kernel_test
+          jupyterlab>=0.35.4,<0.36
+          nodejs>=8.12,<9
+          pillow
+          pylint
+          pytest
+          pytest-cov
+          python-chromedriver-binary
+          robotframework-lint
+          robotframework-seleniumlibrary>=3.2.0
+          robotframework>=3.1
+          twine

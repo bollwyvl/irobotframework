@@ -1,14 +1,14 @@
 # Copyright (c) 2018 Georgia Tech Research Corporation
 # Distributed under the terms of the BSD-3-Clause License
 
-from pathlib import Path
-from unittest.mock import patch
 import subprocess
 import sys
+from pathlib import Path
+from unittest.mock import patch
 
 import jupyter_kernel_test
 
-from . import RobotBase, IPythonMagicBase
+from . import IPythonMagicBase, RobotBase
 from .utils import fake_validate
 
 KERNELS = Path(sys.prefix) / "share" / "jupyter" / "kernels"

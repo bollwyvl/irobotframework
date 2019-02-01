@@ -10,7 +10,7 @@ Library           SeleniumLibrary
 *** Test Cases ***
 Robot Test Case Notebook
     [Documentation]    Can we make a simple Robot Test notebook?
-    Set Screenshot Directory    ${OUTPUT_DIR}/${BROWSER}/robot/base
+    Set Screenshot Directory    ${OUTPUT_DIR}${/}${OS}${/}${BROWSER}${/}robot${/}base
     Capture Page Screenshot    00_before.png
     Launch a new    Robot Framework    Notebook
     Capture Page Screenshot    01_new.png
@@ -21,7 +21,7 @@ Robot Test Case Notebook
 
 Robot Task Notebook
     [Documentation]    Can we make a simple Robot Process Automation notebook?
-    Set Screenshot Directory    ${OUTPUT_DIR}/${BROWSER}/robot/rpa
+    Set Screenshot Directory    ${OUTPUT_DIR}${/}${OS}${/}${BROWSER}${/}robot${/}rpa
     Capture Page Screenshot    00_before.png
     Launch a new    Robot Framework    Notebook
     Capture Page Screenshot    01_new.png

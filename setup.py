@@ -2,10 +2,10 @@
 
     Automagically installs kernelspecs, probably more later...
 """
-import setuptools
-from pathlib import Path
 import re
+from pathlib import Path
 
+import setuptools
 
 NAME = "irobotframework"
 HERE = Path(__file__).parent.resolve()

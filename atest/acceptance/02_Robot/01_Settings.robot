@@ -10,7 +10,7 @@ Library           SeleniumLibrary
 *** Test Cases ***
 Robot Notebook Remembers Settings
     [Documentation]    Will re-running Settings create an error in the logs?
-    Set Screenshot Directory    ${OUTPUT_DIR}/${BROWSER}/robot/settings/cellid
+    Set Screenshot Directory    ${OUTPUT_DIR}${/}${OS}${/}${BROWSER}${/}robot${/}settings${/}cellid
     Capture Page Screenshot    00_before.png
     Launch a new    Robot Framework    Notebook
     Capture Page Screenshot    01_new.png
@@ -23,7 +23,7 @@ Robot Notebook Remembers Settings
 
 Robot Notebook completes Settings
     [Documentation]    Will tabbing complete various Suite Settings?
-    Set Screenshot Directory    ${OUTPUT_DIR}/${BROWSER}/robot/settings/complete
+    Set Screenshot Directory    ${OUTPUT_DIR}${/}${OS}${/}${BROWSER}${/}robot${/}settings${/}complete
     Launch a new    Robot Framework    Notebook
     Add a Cell    *** Set
     Go to End of Cell Source

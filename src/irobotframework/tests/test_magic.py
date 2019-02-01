@@ -2,14 +2,13 @@
 # Distributed under the terms of the BSD-3-Clause License
 from unittest.mock import patch
 
-import pytest
 import jupyter_kernel_test
+import pytest
 
 from irobotframework.magic.robot import cell_magic_tidy
 
-from . import RobotBase, IPythonMagicBase
+from . import IPythonMagicBase, RobotBase
 from .utils import fake_validate
-
 
 TIDY = "%%tidy\n"
 

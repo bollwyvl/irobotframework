@@ -1,0 +1,35 @@
+parameters:
+  name: Linux
+
+steps:
+  - script: python -m scripts.lint
+    displayName: Lint
+
+  - script: python -m pip install -e . --no-deps -vv
+    displayName: Install
+
+  - script: python -m scripts.test py
+    displayName: Unit Tests
+
+  - script: jlpm bootstrap
+    displayName: Build
+
+  - script: python -m scripts.test robot
+    displayName: Acceptance Tests
+
+  - ${{ if eq(parameters.name, 'MacOSX') }}:
+    - script: chmod -R 777 _testoutput
+      displayName: Fix artifact permissions
+
+  - task: PublishTestResults@2
+    displayName: Publish Test Results
+    inputs:
+      testResultsFiles: _testoutput/**/*.xunit.xml
+    condition: always()
+
+  - task: PublishPipelineArtifact@0
+    displayName: Publish Robot Output
+    inputs:
+      targetPath: _testoutput
+      artifactName: Robot Output ${{ parameters.name }}
+    condition: always()

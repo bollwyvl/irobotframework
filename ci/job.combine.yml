@@ -1,0 +1,41 @@
+parameters:
+  name: Linux
+  vmImage: ubuntu-16.04
+
+jobs:
+  - job: Combine
+    condition: always()
+    pool:
+      vmImage: ${{ parameters.vmImage }}
+    dependsOn:
+      - Linux
+      - MacOSX
+      - Windows
+    steps:
+      - template: steps.conda.robot.yml
+        parameters:
+          name: Linux
+      - task: DownloadPipelineArtifact@0
+        condition: always()
+        inputs:
+          artifactName: Robot Output Linux
+          targetPath: _testoutput
+      - task: DownloadPipelineArtifact@0
+        condition: always()
+        inputs:
+          artifactName: Robot Output MacOSX
+          targetPath: _testoutput
+      - task: DownloadPipelineArtifact@0
+        condition: always()
+        inputs:
+          artifactName: Robot Output Windows
+          targetPath: _testoutput
+      - script: python -m scripts.combine
+        condition: always()
+        displayName: Rebot
+      - task: PublishBuildArtifacts@1
+        condition: always()
+        displayName: Publish Robot Output
+        inputs:
+          pathtoPublish: _testoutput
+          artifactName: irobotframework Robot Output

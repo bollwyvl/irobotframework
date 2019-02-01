@@ -8,13 +8,12 @@
 """ (Aspirationally) configurable outputs for interactive Robot Framework
     runs.
 """
-from base64 import b64encode
 import json
 import re
-
-from traitlets.config import LoggingConfigurable
+from base64 import b64encode
 
 from robot.reporting import ResultWriter
+from traitlets.config import LoggingConfigurable
 
 from . import util
 

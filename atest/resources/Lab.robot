@@ -29,8 +29,8 @@ Launch a new
 
 Start JupyterLab
     [Documentation]    Start a Jupyter Notebook Server with JupyterLab
-    ${notebooks} =  Set Variable  ${OUTPUT_DIR}${/}${BROWSER}${/}_notebooks
-    ${log} =  Set Variable  ${OUTPUT_DIR}${/}${BROWSER}${/}_lab.log
+    ${notebooks} =  Set Variable  ${OUTPUT_DIR}${/}${OS}${/}${BROWSER}${/}_notebooks
+    ${log} =  Set Variable  ${OUTPUT_DIR}${/}${OS}${/}${BROWSER}${/}_lab.log
     ${cmd} =  Set Variable  ${LAB_CMD} --notebook-dir=${notebooks}
     Create Directory      ${notebooks}
     Start Process    ${cmd}    shell=true    stderr=STDOUT    stdout=${log}

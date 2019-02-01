@@ -9,23 +9,21 @@
 """
 import json
 import re
-from pathlib import Path
-from collections import OrderedDict
 import uuid
-from typing import List, Text, Dict
+from collections import OrderedDict
+from pathlib import Path
+from typing import Dict, List, Text
 
 from ipykernel.ipkernel import IPythonKernel
 from ipykernel.kernelapp import IPKernelApp
 
+from . import docs, util
 from ._version import __version__
-from . import util, docs
-from .runner import KernelRunner
-from .reporter import KernelReporter
 from .completer import Completer
 from .completion_finders import get_default_completion_finders
-
 from .magic.robot import PY_MAGIC_RE, default_robot_cell_magics
-
+from .reporter import KernelReporter
+from .runner import KernelRunner
 
 __all__ = ["RobotKernel"]
 

@@ -4,7 +4,7 @@
 import re
 import sys
 
-from . import SRC, YEAR, COPYRIGHT_RE, PY_HEADER, WEB_HEADER, SCRIPTS, DOCS
+from . import COPYRIGHT_RE, DOCS, PY_HEADER, SCRIPTS, SRC, WEB_HEADER, YEAR
 
 
 def update_patterns(root, patterns, header, ignores=None) -> int:
